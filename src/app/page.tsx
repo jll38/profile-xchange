@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { xChange Logo } from "./../../public/images/xChange_logo_transparent.png";
+import { xChangeLogo } from "./../../public/images/xChange_logo_transparent.png";
 import { UserAuthForm } from "./../components/auth/loginForm";
 
 export default function Home() {
