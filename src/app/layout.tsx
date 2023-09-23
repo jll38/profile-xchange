@@ -20,7 +20,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <link rel="manifest" href="/manifest.json" />
+       <head>
+          <link
+              rel="manifest"
+              href="/manifest.json"
+          />
+      </head>
       <script
         defer
         src="https://kit.fontawesome.com/a7908c27f8.js"
