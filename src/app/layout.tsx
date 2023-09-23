@@ -5,7 +5,6 @@ import { Martian_Mono } from "next/font/google";
 import { Suspense } from "react";
 import Sidebar from "@/components/common/sidebar";
 
-
 const inter = Inter({ subsets: ["latin"] });
 const martian = Martian_Mono({ subsets: ["latin"] });
 
@@ -19,21 +18,25 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-
   return (
     <html lang="en">
-        <script
-          defer
-          src="https://kit.fontawesome.com/a7908c27f8.js"
-          async
-        ></script>
+       <head>
+          <link
+              rel="manifest"
+              href="/manifest.json"
+          />
+      </head>
+      <script
+        defer
+        src="https://kit.fontawesome.com/a7908c27f8.js"
+        async
+      ></script>
 
       <body
         className={
           martian.className + " bg-gradient-to-t from-violet-900  to-slate-900"
         }
       >
-        
         <div className="bg-animation">
           <div id="stars"></div>
           <div id="stars2"></div>
