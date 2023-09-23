@@ -1,8 +1,10 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter } from 'next/font/google';
+import { Martian_Mono } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
+const martian = Martian_Mono({ subsets: ['latin']})
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,7 +18,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className + " bg-gradient-to-t from-violet-600 via-violet-900 to-slate-900"}>{children}</body>
+      <body className={martian.className + " bg-gradient-to-t from-violet-900  to-slate-900"}>
+      <div className="bg-animation">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+        <div id="stars4"></div>
+    </div>{children}</body>
     </html>
   )
 }
