@@ -36,7 +36,7 @@ export default function CreatePost() {
       <Textarea
         id="messageTextArea"
         placeholder="What's going on?"
-        className="text-slate-900"
+        className="text-slate-100 bg-transparent"
         onChange={handleChange}
       />
       <Button
