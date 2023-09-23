@@ -17,7 +17,7 @@ export default function Feed() {
           <CreatePost />
         </div>
         <div className="h-screen w-full lg:w-1/2 border border-white p-[2rem] overflow-y-scroll">
-          <Post/>
+          <Post bg={true}/>
         </div>
       </main>
     </>

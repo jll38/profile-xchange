@@ -3,11 +3,14 @@ import React from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 
+type PostProps = {
+  bg: boolean;
+};
 
-export function Post() {
+export function Post({bg} : PostProps) {
 
   return (
-    <div className="w-full min-h-[13em] bg-black/25 rounded-[2rem] p-[2rem]">
+    <div className={`w-full min-h-[13em] ${bg ? "bg-black/25" : ""} rounded-[2rem] p-[2rem]`}>
       <div className="flex items-center gap-4 mb-2">
         {" "}
         <Avatar>
