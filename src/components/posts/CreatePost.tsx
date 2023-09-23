@@ -10,9 +10,17 @@ import { useState } from "react";
 export default function CreatePost() {
 
     const [message, setMessage] = React.useState<string>("")
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setMessage(e.target.value);
         console.log(message);
+    }
+    const handlePost = () => {
+        console.log("Posting Message '" + message + "'");
+
+        //Implement Post Logic when backend is done
+        console.log("Clearing state...");
+        (document.getElementById("messageTextArea") as HTMLTextAreaElement).value = "";
+        setMessage("");
     }
 
   return (
@@ -26,7 +34,7 @@ export default function CreatePost() {
         <Label htmlFor="message">Say Anything</Label>
       </div>
       <Textarea
-        id="message"
+        id="messageTextArea"
         placeholder="What's going on?"
         className="text-slate-900"
         onChange={handleChange}
@@ -35,6 +43,7 @@ export default function CreatePost() {
         className={
           buttonVariants({ variant: "outline" }) + " text-black w-[5rem]"
         }
+        onClick={handlePost}
       >
         Post
       </Button>

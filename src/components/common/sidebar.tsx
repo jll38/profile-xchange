@@ -26,7 +26,7 @@ const Sidebar = () => {
           </button>
         </div>
         <div>
-            <Image src="/images/logo.png" width="90" height="100"></Image>
+            <Image alt="" src="/images/logo.png" width="90" height="100"></Image>
         </div>
       </nav>
 

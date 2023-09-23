@@ -32,7 +32,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
     console.log(email + " | " + password);
   }, [email, password]);
 
-  
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const targetID = e.target.getAttribute("id");
     if (targetID === "email") {
@@ -104,7 +104,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
             </div>
           </form>
           <div className="relative">
-            <div className="flex justify-between absolute inset-0 flex items-center">
+            <div className="flex justify-between absolute inset-0  items-center">
               <span className="w-1/4 border-t" />
               <span className="w-1/4 border-t" />
             </div>
