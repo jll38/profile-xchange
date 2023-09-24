@@ -77,10 +77,10 @@ function SignIn() {
     }
   }
   return (
-    <div>
+    <div className="flex flex-col items-center gap-2">
       <h3>Web3 Authentication</h3>
-      <button onClick={requestAccount}>Connect Metamask</button>
-      <button onClick={signData}>Sign in</button>
+      <Button onClick={requestAccount}>Connect Metamask</Button>
+      <Button onClick={signData}>Sign in</Button>
     </div>
   );
 }
