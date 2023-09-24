@@ -10,7 +10,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { FormDescription } from "../ui/form";
 import { ethers } from 'ethers';
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, Firestore, getDocs} from "firebase/firestore";
+import { getFirestore, collection, getDocs, setDoc, doc } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBQn3kG3HBs2h-ONa7iztXaPTQ0C7Wz6UU",
@@ -25,11 +25,6 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-
-const querySnapshot = await getDocs(collection(db, "users"));
-querySnapshot.forEach((doc) => {
-  console.log(`${doc.id} => ${doc.data()}`);
-});
 
 class User {
   user_address: string;
@@ -53,7 +48,7 @@ class User {
 async function addUser(user_address: string, user_name: string, user_email: string) {
   try {
     const docRef = await setDoc(doc(db, "users", user_address), new User(user_address, user_name, user_email, "https://firebasestorage.googleapis.com/v0/b/xchange-girlhax2023.appspot.com/o/static%2Fdefault_user_pfp.png?alt=media&token=d6a168c0-5bb3-4468-b368-f7ff5a05b551", ""))
-    console.log("User set with ID: ", docRef.id);
+    console.log("User created.");
   } catch (e) {
     console.error("Error adding user: ", e);
   }
