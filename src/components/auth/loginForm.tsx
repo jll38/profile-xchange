@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import * as React from "react";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
@@ -12,7 +12,7 @@ import { ethers } from 'ethers';
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, Firestore, getDocs} from "firebase/firestore";
 
-const firebaseConfig = {
+/*const firebaseConfig = {
   apiKey: "AIzaSyBQn3kG3HBs2h-ONa7iztXaPTQ0C7Wz6UU",
   authDomain: "xchange-girlhax2023.firebaseapp.com",
   databaseURL: "https://xchange-girlhax2023-default-rtdb.firebaseio.com",
@@ -59,7 +59,6 @@ async function addUser(user_address: string, user_name: string, user_email: stri
   }
 }
 
-interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> { }
 
 function SignIn() {
   const [walletAddress, setWalletAddress] = useState("");
@@ -109,6 +108,7 @@ function SignIn() {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
     }
   };
+  
   const signData = async () => {
     const accounts = await window.ethereum.request({ method: "eth_requestAccounts", });
     const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -133,6 +133,8 @@ function SignIn() {
     </div>
   );
 }
+*/
+interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> { }
 
 
 export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
@@ -191,12 +193,14 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
           }
           {...props}
         >
-          <SignIn />
+          
           <div className="mb-4">
             <div className="text-[1em] text-center font-semibold">
               Login or create an account
             </div>
+            
           </div>
+          
           <form onSubmit={onSubmit}>
             <div className="grid gap-2">
               <div className="text-center text-slate-200 text-[.8em]">
@@ -235,22 +239,21 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
             </div>
             <div className="relative flex justify-center text-xs uppercase">
               <span className="text-white px-2 text-muted-foreground text-[.8em]">
-                Or continue with
+                Or 
               </span>
             </div>
           </div>
-          <Button
-            type="button"
-            disabled={isLoading}
-            className="text-black bg-white hover:bg-gray-100 flex gap-2"
+          <Link
+            href="/feed"
+            className="text-black bg-white hover:bg-gray-100 flex gap-2 py-2  justify-center items-center"
           >
             {isLoading ? (
               <i className="fa-solid fa-spinner fa-spin"></i>
             ) : (
-              <i className="fa-brands fa-github"> </i>
+              <i className="fa-solid fa-arrow-right"> </i>
             )}{" "}
-            Github
-          </Button>
+            Proceed to Demo
+          </Link>
         </div>
       )}
 

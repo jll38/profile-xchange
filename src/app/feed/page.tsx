@@ -15,7 +15,7 @@ export default function Feed() {
       <main className="flex h-screen items-center justify-between p-0 sm:p-24 text-white z-20">
         <div className="h-screen w-1/2 lg:flex flex-col items-center p-[2rem] hidden justify-around">
             <div className='w-[32rem] h-[16rem] bg-black/25 rounded-[4rem] p-[2rem] flex flex-col items-center gap-2'>
-                <Image src={"/images/eth.svg"} width="100" height="125" alt=""></Image>
+                <Image src={"/images/eth.svg"} width="100" height="125" alt="" className='floating'></Image>
                 <div className='text-[2em]'>0.00 ETH</div>
             </div>
           <CreatePost />
