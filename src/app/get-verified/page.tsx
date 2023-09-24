@@ -21,7 +21,7 @@ export default function Verification() {
             <li className="mb-3">💬 Direct Support Access</li>
             <li className="mb-3">🎁 Exclusive Perks and Offers</li>
           </ul>
-          <Button variant={buttonVariants.primary} className="mt-5">
+          <Button className="mt-5">
             Verify Now
           </Button>
         </div>
