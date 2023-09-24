@@ -24,7 +24,7 @@ export default function CreatePost() {
     }
 
   return (
-    <div className="w-full h-[16rem] bg-black/25 rounded-[4rem] p-[2rem] flex flex-col gap-2">
+    <div className="w-[32rem] h-[16rem] bg-black/25 rounded-[4rem] p-[2rem] flex flex-col gap-2">
       <div className="flex items-center gap-4 mb-4">
         {" "}
         <Avatar>
