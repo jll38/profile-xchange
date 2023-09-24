@@ -10,7 +10,7 @@ type PostProps = {
 export function Post({bg} : PostProps) {
 
   return (
-    <div className={`w-full min-h-[13em] ${bg ? "bg-black/25" : ""} rounded-[2rem] p-[2rem]`}>
+    <div className={`w-full min-h-[14em] ${bg ? "bg-black/25" : ""} rounded-[2rem] sm:pt-[3em] p-[2rem]`}>
       <div className="flex items-center gap-4 mb-2">
         {" "}
         <Avatar>
