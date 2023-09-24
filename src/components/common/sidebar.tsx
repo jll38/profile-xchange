@@ -11,7 +11,7 @@ const Sidebar = () => {
               <div>Home</div>
             </button>
           </Link>
-          <Link href="/user">
+          <Link href="/user/example">
             <button className="border-b-2 border-white h-[6rem] flex flex-col items-center justify-center w-full gap-2">
               <i className="fa-solid fa-user text-[2em]"></i>
               <div>Profile</div>
@@ -52,8 +52,8 @@ const Sidebar = () => {
             <div className="sm:block hidden">Home</div>
           </button>
         </Link>
-        <Link href="/user/test" className="flex flex-col items-center justify-center w-full gap-2">
-        <button className=" ">
+        <Link href="/user/example" className="flex flex-col items-center justify-center w-full gap-2">
+        <button>
           <i className="fa-solid fa-user text-[1.5em]"></i>
           <div className="sm:block hidden">Profile</div>
         </button>
