@@ -20,8 +20,7 @@ export function Post({bg} : PostProps) {
           </AvatarFallback>
         </Avatar>
         <div>
-          <div className="text-[.8em]">First Last</div>
-          <div className="text-[.6em] text-slate-300">@username</div>
+          <div className="text-[.8em]">Username</div>
         </div>
       </div>
       <div className="text-[.75em]">

@@ -10,8 +10,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { useState } from "react";
 
 export default function Register() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [emailConfirm, setEmailConfirm] = useState("");
@@ -25,7 +24,7 @@ export default function Register() {
   };
 
   const handleValidation = () => {
-    if (!email || !firstName || !lastName || !username || !emailConfirm) {
+    if (!email || !username || !emailConfirm) {
       setErrorMessage("Enter all required fields.");
     }    
     if (!validateEmail(email)) {
@@ -49,29 +48,7 @@ export default function Register() {
           <div className="text-[1.5em]">CREATE YOUR PROFILE</div>
           <div className="w-full border-b mb-[2rem]"></div>
           <div>
-            <div className="flex gap-[2em] mb-[1rem]">
-              <div className="w-full">
-                <Label htmlFor="firstName">First Name</Label>
-                <Input
-                  className="bg-transparent"
-                  type="text"
-                  id="firstName"
-                  value={firstName}
-                  onChange={(e) => setFirstName(e.target.value)}
-                  required={true}
-                />
-              </div>
-              <div className="w-full">
-                <Label htmlFor="lastName">Last Name</Label>
-                <Input
-                  className="bg-transparent"
-                  type="text"
-                  id="lastName"
-                  value={lastName}
-                  onChange={(e) => setLastName(e.target.value)}
-                />
-              </div>
-            </div>
+          
             <div className="flex gap-[2em] mb-[1rem]">
               <div className="w-full">
                 <Label htmlFor="username">Username</Label>

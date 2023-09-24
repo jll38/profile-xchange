@@ -23,14 +23,14 @@ export default function UserProfile({ params }: { params: { slug: string } }) {
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
               <div id="userRealName" className="">
-                User
+              {handle}
               </div>
             </div>
             <div
               id="userHandle"
               className="text-[.75em] mt-[2em] text-slate-200"
             >
-              @{handle}
+              
             </div>
             <div className="flex items-center">
               <Image
