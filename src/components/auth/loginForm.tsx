@@ -9,12 +9,9 @@ import { Label } from "../ui/label";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { FormDescription } from "../ui/form";
 import { ethers } from 'ethers';
-//import firebase from 'firebase/app';
-//import { initializeApp } from "firebase/app";
-//import { getAnalytics } from "firebase/analytics";
-//import 'firebase/firestore';
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, Firestore, getDocs} from "firebase/firestore";
 
-/* 
 const firebaseConfig = {
   apiKey: "AIzaSyBQn3kG3HBs2h-ONa7iztXaPTQ0C7Wz6UU",
   authDomain: "xchange-girlhax2023.firebaseapp.com",
@@ -27,36 +24,35 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-const db = firebase.firestore(); 
-*/
+const db = getFirestore(app);
 
-/*
-const customUserId = 'WALLET_ADDR';
-const userData = {
-  user_name: '',
-  user_pfp: '',
-  user_email: '',
-  user_bio: '',
-  // Add other user data fields here
-}; // USE addUserWithCustomId(WALLET_ADDR, userData);
-
-async function addUserWithCustomId(userId: string, userData: any) {
-  try {
-    // Get a reference to the 'users' collection
-    const usersRef = db.collection('users');
-
-    // Specify the custom document ID when adding the user
-    await usersRef.doc(userId).set(userData);
-
-    console.log('User added successfully with custom ID:', userId);
-  } catch (error) {
-    console.error('Error adding user:', error);
+class User {
+  user_address: string;
+  user_name: string;
+  user_email: string;
+  user_pfp: string;
+  user_bio: string;
+  constructor(user_address: string, user_name: string, user_email: string, user_pfp: string, user_bio: string) {
+    this.user_address = user_address;
+    this.user_name = user_name;
+    this.user_email = user_email;
+    this.user_pfp = user_pfp;
+    this.user_bio = user_bio;
+  }
+  toString() {
+    return this.user_address;
   }
 }
 
-
-*/
+// Add a new user to the users db
+async function addUser(user_address: string, user_name: string, user_email: string) {
+  try {
+    const docRef = await setDoc(doc(db, "users", user_address), new User(user_address, user_name, user_email, "https://firebasestorage.googleapis.com/v0/b/xchange-girlhax2023.appspot.com/o/static%2Fdefault_user_pfp.png?alt=media&token=d6a168c0-5bb3-4468-b368-f7ff5a05b551", ""))
+    console.log("User set with ID: ", docRef.id);
+  } catch (e) {
+    console.error("Error adding user: ", e);
+  }
+}
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> { }
 
