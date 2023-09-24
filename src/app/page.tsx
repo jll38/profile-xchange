@@ -9,7 +9,7 @@ export default function Home() {
         <div id="logo-header" className="text-center mb-[2rem]">
           <div className="logo flex justify-center"><Image src="/images/xChange_logo_transparent.png" alt="" width={100} height={100} /></div>
           <div className="text-[4em] font-extrabold">xChange</div>
-          <div className="-mt-[.75rem] text-[.8rem] text-slate-300">Unlock Connections, xChange Value</div>
+          <div className="-mt-[.75rem] text-[.8rem] text-slate-300">Unlock Connections, XChange Value</div>
         </div>
         <UserAuthForm />
       </div>
