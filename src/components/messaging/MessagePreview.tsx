@@ -22,7 +22,7 @@ export function MessagePreview({ user, activeUser, setSelectedUser }: PreviewTyp
             <div className="w-full">
                 <div className="w-full text-left">User</div>
                 <div className="w-[70%] text-ellipsis overflow-hidden whitespace-nowrap text-[.75em]">
-                    Lorem ipsum something something placeholder message
+                    lorem ipsum placeholder message
                 </div>
             </div>
         </div>

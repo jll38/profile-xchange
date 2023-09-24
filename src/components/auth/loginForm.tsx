@@ -113,7 +113,7 @@ function SignIn() {
     console.log(s)
     if (address === s) {
       console.log("SUCCESS!");
-      window.location.href = "http://localhost:3000/user";
+      window.location.href = "/feed";
     }
   }
   return (
@@ -226,22 +226,21 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
             </div>
             <div className="relative flex justify-center text-xs uppercase">
               <span className="text-white px-2 text-muted-foreground text-[.8em]">
-                Or continue with
+                Or 
               </span>
             </div>
           </div>
-          <Button
-            type="button"
-            disabled={isLoading}
-            className="text-black bg-white hover:bg-gray-100 flex gap-2"
+          <Link
+            href="/feed"
+            className="text-black bg-white hover:bg-gray-100 flex gap-2 py-2  justify-center items-center"
           >
             {isLoading ? (
               <i className="fa-solid fa-spinner fa-spin"></i>
             ) : (
-              <i className="fa-brands fa-github"> </i>
+              <i className="fa-solid fa-arrow-right"> </i>
             )}{" "}
-            Github
-          </Button>
+            Proceed to Demo
+          </Link>
         </div>
       )}
 

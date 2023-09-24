@@ -6,7 +6,7 @@ export function SentMessage({ }) {
 
         <div className="flex flex-col w-[20rem] justify-end">
             <div className="text-slate-100">
-                Lrwitewitudisfjjsdfjsd jdfs jsfh sdkjhf jksdfh jksdh fkshk
+                Doing good, how are you?
             </div>
             <span className="text-[.5em] text-slate-300 text-right">05/13/23</span>
         </div>
