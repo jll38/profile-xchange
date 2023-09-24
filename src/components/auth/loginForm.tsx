@@ -62,8 +62,7 @@ function SignIn() {
     console.log('Requesting account...');
 
     // ❌ Check if Meta Mask Extension exists
-    if (typeof window.ethereum !== 'undefined') {
-      if (window.ethereum) {
+      if ((window as any).ethereum) {
         console.log('detected');
 
         try {
@@ -75,9 +74,6 @@ function SignIn() {
       } else {
         alert('Meta Mask not detected');
       }
-    } else {
-      console.log("No window.ethereum detected.")
-    }
   }
 
   function makeUppercase(address: string | any[], accounts: string[]) {
