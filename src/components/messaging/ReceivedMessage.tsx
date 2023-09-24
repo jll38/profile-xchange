@@ -9,7 +9,7 @@ export function RecievedMessage({ }) {
         </Avatar>
         <div className="w-[20rem]">
             <div className="text-slate-100">
-                Lrwitewitudisfjjsdfjsd jdfs jsfh sdkjhf jksdfh jksdh fkshk
+                Hey, what&apos;s up?
             </div>
             <span className="text-[.5em] text-slate-300">05/13/23</span>
         </div>
