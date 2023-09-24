@@ -62,18 +62,18 @@ function SignIn() {
     console.log('Requesting account...');
 
     // ❌ Check if Meta Mask Extension exists
-      if ((window as any).ethereum) {
-        console.log('detected');
+    if ((window as any).ethereum) {
+      console.log('detected');
 
-        try {
-          const accounts = await window.ethereum.request({ method: "eth_requestAccounts", });
-          setWalletAddress(accounts[0]);
-        } catch (error) {
-          console.log('Error connecting...');
-        }
-      } else {
-        alert('Meta Mask not detected');
+      try {
+        const accounts = await (window as any).ethereum.request({ method: "eth_requestAccounts", });
+        setWalletAddress(accounts[0]);
+      } catch (error) {
+        console.log('Error connecting...');
       }
+    } else {
+      alert('Meta Mask not detected');
+    }
   }
 
   function makeUppercase(address: string | any[], accounts: string[]) {
@@ -94,15 +94,15 @@ function SignIn() {
 
   // Create a provider to interact with a smart contract
   async function connectWallet() {
-    if (typeof window.ethereum !== 'undefined') {
+    if (typeof (window as any).ethereum !== 'undefined') {
       await requestAccount();
 
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const provider = new ethers.providers.Web3Provider((window as any).ethereum);
     }
   };
   const signData = async () => {
-    const accounts = await window.ethereum.request({ method: "eth_requestAccounts", });
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const accounts = await (window as any).ethereum.request({ method: "eth_requestAccounts", });
+    const provider = new ethers.providers.Web3Provider((window as any).ethereum);
     const signer = provider.getSigner()
     let message = "test message"
     let signature = await signer.signMessage(message)
