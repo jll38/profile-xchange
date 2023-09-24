@@ -8,8 +8,83 @@ import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { FormDescription } from "../ui/form";
+import { ethers } from 'ethers';
 
-interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> { }
+
+function SignIn() {
+  const [walletAddress, setWalletAddress] = useState("");
+  async function requestAccount() {
+    console.log('Requesting account...');
+
+    // ❌ Check if Meta Mask Extension exists
+    if (typeof window.ethereum !== 'undefined') {
+      if (window.ethereum) {
+        console.log('detected');
+
+        try {
+          const accounts = await window.ethereum.request({ method: "eth_requestAccounts", });
+          setWalletAddress(accounts[0]);
+        } catch (error) {
+          console.log('Error connecting...');
+        }
+      } else {
+        alert('Meta Mask not detected');
+      }
+    } else {
+      console.log("No window.ethereum detected.")
+    }
+  }
+
+  function makeUppercase(address: string | any[], accounts: string[]) {
+    let result = '';
+
+    for (let i = 0; i < address.length; i++) {
+      if (address[i].toUpperCase() === address[i]) {
+        // console.log(address[i])
+        result += accounts[i].toUpperCase();
+      } else {
+        result += accounts[i];
+      }
+    }
+
+    return result;
+  }
+
+
+  // Create a provider to interact with a smart contract
+  async function connectWallet() {
+    if (typeof window.ethereum !== 'undefined') {
+      await requestAccount();
+
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+    }
+  };
+  const signData = async () => {
+    const accounts = await window.ethereum.request({ method: "eth_requestAccounts", });
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner()
+    let message = "test message"
+    let signature = await signer.signMessage(message)
+    let address = ethers.utils.verifyMessage(message, signature)
+    console.log(address)
+    console.log(accounts[0])
+    let s = makeUppercase(address, accounts[0])
+    console.log(s)
+    if (address === s) {
+      console.log("SUCCESS!");
+      window.location.href = "http://localhost:3000/user";
+    }
+  }
+  return (
+    <div>
+      <h3>Web3 Authentication</h3>
+      <button onClick={requestAccount}>Connect Metamask</button>
+      <button onClick={signData}>Sign in</button>
+    </div>
+  );
+}
+
 
 export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
@@ -57,7 +132,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
     //If exists, signup state will be set to 'login', else 'signup'
   };
 
-  const validate = () => {};
+  const validate = () => { };
   return (
     <>
       {!signup && (
@@ -67,6 +142,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
           }
           {...props}
         >
+          <SignIn />
           <div className="mb-4">
             <div className="text-[1em] text-center font-semibold">
               Login or create an account
