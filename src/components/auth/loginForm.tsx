@@ -9,6 +9,54 @@ import { Label } from "../ui/label";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { FormDescription } from "../ui/form";
 import { ethers } from 'ethers';
+//import firebase from 'firebase/app';
+//import { initializeApp } from "firebase/app";
+//import { getAnalytics } from "firebase/analytics";
+//import 'firebase/firestore';
+
+/* 
+const firebaseConfig = {
+  apiKey: "AIzaSyBQn3kG3HBs2h-ONa7iztXaPTQ0C7Wz6UU",
+  authDomain: "xchange-girlhax2023.firebaseapp.com",
+  databaseURL: "https://xchange-girlhax2023-default-rtdb.firebaseio.com",
+  projectId: "xchange-girlhax2023",
+  storageBucket: "xchange-girlhax2023.appspot.com",
+  messagingSenderId: "910547733569",
+  appId: "1:910547733569:web:7b72deb4d5304380584ac0",
+  measurementId: "G-7WN7KFJG4E"
+};
+
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const db = firebase.firestore(); 
+*/
+
+/*
+const customUserId = 'WALLET_ADDR';
+const userData = {
+  user_name: '',
+  user_pfp: '',
+  user_email: '',
+  user_bio: '',
+  // Add other user data fields here
+}; // USE addUserWithCustomId(WALLET_ADDR, userData);
+
+async function addUserWithCustomId(userId: string, userData: any) {
+  try {
+    // Get a reference to the 'users' collection
+    const usersRef = db.collection('users');
+
+    // Specify the custom document ID when adding the user
+    await usersRef.doc(userId).set(userData);
+
+    console.log('User added successfully with custom ID:', userId);
+  } catch (error) {
+    console.error('Error adding user:', error);
+  }
+}
+
+
+*/
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> { }
 
